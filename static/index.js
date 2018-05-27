@@ -1,15 +1,13 @@
-// // function doFirst() {
-// //   document.getElementById('get_movies').addEventListener('click', getMovie)
-// // }
+(function () {
 
-// function getMovie() {
-fetch('http://localhost:5000/api/movies')
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (movies) {
+  const API_BASE_URL = 'http://localhost:5000'
+
+  /**
+   * Render a given movie list as HTML
+   * @param {Array} movies list of movies to render
+   */
+  function renderMovieList(movies) {
     let html = '';
-    console.log(movies)
 
     movies.forEach(function (movie) {
       html += `
@@ -23,11 +21,31 @@ fetch('http://localhost:5000/api/movies')
             <h4>Rating: ${movie.StarRating}/5</h4>
           </li>
       `
-    });
-
+    })
     document.getElementById('movies').innerHTML = html
+  }
 
-  });
+  /**
+   * Get movie list 
+   */
+  function getMovieList() {
+    fetch(`${API_BASE_URL}/api/movies`)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (movies) {
+        renderMovieList(movies)
+      });
+  }
+})();
+
+
+// // function doFirst() {
+// //   document.getElementById('get_movies').addEventListener('click', getMovie)
+// // }
+
+// function getMovie() {
+
 // }
 
 
