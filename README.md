@@ -26,4 +26,4 @@ Movie API Implemented in Flask
     FLASK_APP=app.py flask run
     ```
 
-5. Navigate to localhost:5000 on your browser
+5. Navigate to http://localhost:5000 on your browser
