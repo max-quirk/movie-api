@@ -6,13 +6,11 @@
   const modal = document.getElementById('simpleModal');
   const modalBtn = document.getElementById('modalBtn');
   const closeBtn = document.getElementsByClassName('closeBtn')[0];
-  const submitBtn = document.getElementById('submit_movie');
 
   addMovieBtn.addEventListener('submit', addMovie);
   modalBtn.addEventListener('click', openModal);
   closeBtn.addEventListener('click', closeModal);
   window.addEventListener('click', outsideClick);
-  submitBtn.addEventListener('click', closeModal);
 
   /**
    * Render a given movie list as HTML
@@ -89,6 +87,7 @@
         return response.json();
       })
       .then(function () {
+        closeModal()
         getMovieList()
       });
 

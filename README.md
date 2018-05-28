@@ -25,3 +25,5 @@ Movie API Implemented in Flask
     ```bash
     FLASK_APP=app.py flask run
     ```
+
+5. Navigate to localhost:5000 on your browser

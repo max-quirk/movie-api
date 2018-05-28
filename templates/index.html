@@ -6,17 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="static/style.css" rel="stylesheet">
-  <title>Document</title>
+  <title>Max's Magnificent Movie Reviews</title>
+  <link rel="icon" type="image/x-icon" href="/static/images/SMG-Favicon.png" />
 </head>
 
 <body>
-  <h1>Movie Reviews</h1>
+  <h1>Max's Magnificent Movie Reviews</h1>
   <section>
-    <div class="wrapper" id="movies">
-
-    </div>
     <div id="button-div">
       <button id="modalBtn" class="addMovieBtn">Add Movie</button>
+    </div>
+    <div class="wrapper" id="movies">
+
     </div>
 
   </section>
@@ -30,23 +31,32 @@
       <div class="modal-body">
         <form id="addMovie">
           <div class="input-fields">
-            <input class="movie-inputs" type="text" placeholder="Movie Name" id="Name">
+            <label for="Name"></label>
+            <input required class="movie-inputs" type="text" placeholder="Movie Name" id="Name">
             </br>
-            <textarea class="movie-inputs" type="text" placeholder="Description" id="Description"></textarea>
+            <label for="Description"></label>
+            <textarea required class="movie-inputs" type="text" placeholder="Description" id="Description"></textarea>
             </br>
-            <input class="movie-inputs" type="text" placeholder="Genre" id="Genre">
+            <label for="Genre"></label>
+            <input required class="movie-inputs" type="text" placeholder="Genre" id="Genre">
             </br>
-            <input class="movie-inputs" type="text" placeholder="Release Date" id="ReleaseDate">
+            <label for="ReleaseDate"></label>
+            <input required class="movie-inputs" type="text" placeholder="Release Date" id="ReleaseDate">
             </br>
-            <input class="movie-inputs" type="text" placeholder="Director" id="Director">
+            <label for="Director"></label>
+            <input required class="movie-inputs" type="text" placeholder="Director" id="Director">
             </br>
-            <input class="movie-inputs" type="text" placeholder="Running Time" id="RunningTime">
+            <label for="RunningTime"></label>
+            <input required class="movie-inputs" type="text" placeholder="Running Time" id="RunningTime">
             </br>
-            <input class="movie-inputs" type="text" placeholder="StarRating" id="StarRating">
+            <label for="StarRating"></label>
+            <input required class="movie-inputs" type="text" placeholder="StarRating" id="StarRating">
             </br>
-            <input class="movie-inputs" type="text" placeholder="Image URL" id="Image">
+            <label for="Image"></label>
+            <input required class="movie-inputs" type="text" placeholder="Image URL" id="Image">
             </br>
-            <input type="submit" id="submit_movie" class="addMovieBtn" value="Submit"></input>
+            <label for="submit_movie"></label>
+            <input required type="submit" id="submit_movie" class="addMovieBtn" value="Submit"></input>
           </div>
         </form>
       </div>
