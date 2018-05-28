@@ -48,6 +48,7 @@
         return response.json();
       })
       .then(function (data) {
+        console.log(data)
         renderMovieList(data.data)
       });
   }
@@ -87,8 +88,8 @@
       .then(function (response) {
         return response.json();
       })
-      .then(function (movies) {
-        getMovieList(movies)
+      .then(function () {
+        getMovieList()
       });
 
   }

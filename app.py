@@ -10,7 +10,7 @@ def getAll():
     Returns:
         movies [list]: List of dictionaries with details of movies
     """
-    return jsonify(sortMovies(movies))
+    return jsonify({'data': sortMovies(movies)})
 
 
 @app.route('/', methods=['GET'])
@@ -37,7 +37,7 @@ def addOne():
 
     movies.append(movie)
 
-    return jsonify(movies)
+    return jsonify({'message': 'Success, movie added'})
 
 
 def sortMovies(movies):
