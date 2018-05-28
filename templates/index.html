@@ -11,7 +11,26 @@
 <body>
   <h1>Movie Reviews</h1>
   <ul id='movies'></ul>
-  <button id="get_movies">Get Movies</button>
+  <form id="addMovie">
+    <h3>Movie Name:</h3>
+    <input type="text" placeholder="Movie Name" id="Name">
+    <h3>Description:</h3>
+    <input type="text" placeholder="Description" id="Description">
+    <h3>Genre:</h3>
+    <input type="text" placeholder="Genre" id="Genre">
+    <h3>Release Date:</h3>
+    <input type="text" placeholder="Release Date" id="ReleaseDate">
+    <h3>Director:</h3>
+    <input type="text" placeholder="Director" id="Director">
+    <h3>Running Time:</h3>
+    <input type="text" placeholder="Running Time" id="RunningTime">
+    <h3>Star Rating:</h3>
+    <input type="text" placeholder="StarRating" id="StarRating">
+    <h3>Image:</h3>
+    <input type="text" placeholder="Image" id="Image">
+
+    <input type="submit" id="submit_movie" value="Submit">Submit Movie</button>
+  </form>
 
   <script src="static/index.js"></script>
 </body>

@@ -1,7 +1,8 @@
 (function () {
 
   const API_BASE_URL = 'http://localhost:5000'
-
+  //document.getElementById('submit_movie').addEventListener('click', getNewMovie())
+  document.getElementById('addMovie').addEventListener('submit', addMovie)
   /**
    * Render a given movie list as HTML
    * @param {Array} movies list of movies to render
@@ -26,7 +27,7 @@
   }
 
   /**
-   * Get movie list 
+   * Get movie list from API
    */
   function getMovieList() {
     fetch(`${API_BASE_URL}/api/movies`)
@@ -37,16 +38,42 @@
         renderMovieList(movies)
       });
   }
+
+
+  function addMovie(e) {
+    e.preventDefault();
+    let name = document.getElementById("Name").value;
+    let description = document.getElementById("Description").value;
+    let genre = document.getElementById("Genre").value;
+    let releasedate = document.getElementById("ReleaseDate").value;
+    let director = document.getElementById("Director").value;
+    let runningtime = document.getElementById("RunningTime").value;
+    let starrating = document.getElementById("StarRating").value;
+    let image = document.getElementById("Image").value;
+
+    fetch(`${API_BASE_URL}/api/movies`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        'name': name,
+        'description': description,
+        'genre': genre,
+        'releaseDate': releasedate,
+        'director': director,
+        'runningTime': runningtime,
+        'starRating': starrating,
+        'image': image
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+
+    getMovieList()
+  }
+
+  window.addEventListener("load", getMovieList())
 })();
 
-
-// // function doFirst() {
-// //   document.getElementById('get_movies').addEventListener('click', getMovie)
-// // }
-
-// function getMovie() {
-
-// }
-
-
-// window.addEventListener('load', doFirst, false)
