@@ -1,0 +1,18 @@
+.wrapper {
+  display:grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-column-gap: 5%;
+  grid-row-gap: 50px;
+}
+
+.wrapper div{
+  background: #eee
+}
+
+.movie-image {
+  width: 100%;
+}
+
+.movie-details {
+  padding: 0px 15px;
+}

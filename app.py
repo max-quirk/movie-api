@@ -3,11 +3,6 @@ from movies import *
 
 app = Flask(__name__)
 
-movies = []
-
-movies.append(fight_club)
-movies.append(dumb_and_dumber)
-
 
 @app.route('/api/movies', methods=['GET'])
 def getAll():

@@ -12,15 +12,17 @@
 
     movies.forEach(function (movie) {
       html += `
-          <li>
-            <img src="${movie.Image}">
+          <div class="single-movie">
+          <img class="movie-image" src="${movie.Image}">
+          <div class="movie-details">
             <h1>${movie.Name}</h1>
             <h4>Description: ${movie.Description}</h4>
-            <h4>Release Date: ${movie.ReleaseDate}</h4>
             <h4>Director: ${movie.Director}</h4>
+            <h4>Release Date: ${movie.ReleaseDate}</h4>
             <h4>Runtime: ${movie.RunningTime}</h4>
             <h4>Rating: ${movie.StarRating}/5</h4>
-          </li>
+          </div>
+      </div>
       `
     })
     document.getElementById('movies').innerHTML = html
