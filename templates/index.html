@@ -15,28 +15,45 @@
     <div class="wrapper" id="movies">
 
     </div>
+    <div id="button-div">
+      <button id="modalBtn" class="addMovieBtn">Add Movie</button>
+    </div>
+
   </section>
 
-  <form id="addMovie">
-    <h3>Movie Name:</h3>
-    <input type="text" placeholder="Movie Name" id="Name">
-    <h3>Description:</h3>
-    <input type="text" placeholder="Description" id="Description">
-    <h3>Genre:</h3>
-    <input type="text" placeholder="Genre" id="Genre">
-    <h3>Release Date:</h3>
-    <input type="text" placeholder="Release Date" id="ReleaseDate">
-    <h3>Director:</h3>
-    <input type="text" placeholder="Director" id="Director">
-    <h3>Running Time:</h3>
-    <input type="text" placeholder="Running Time" id="RunningTime">
-    <h3>Star Rating:</h3>
-    <input type="text" placeholder="StarRating" id="StarRating">
-    <h3>Image:</h3>
-    <input type="text" placeholder="Image" id="Image">
+  <div id="simpleModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="closeBtn">&times;</span>
+        <h2>Add Movie</h2>
+      </div>
+      <div class="modal-body">
+        <form id="addMovie">
+          <div class="input-fields">
+            <input class="movie-inputs" type="text" placeholder="Movie Name" id="Name">
+            </br>
+            <textarea class="movie-inputs" type="text" placeholder="Description" id="Description"></textarea>
+            </br>
+            <input class="movie-inputs" type="text" placeholder="Genre" id="Genre">
+            </br>
+            <input class="movie-inputs" type="text" placeholder="Release Date" id="ReleaseDate">
+            </br>
+            <input class="movie-inputs" type="text" placeholder="Director" id="Director">
+            </br>
+            <input class="movie-inputs" type="text" placeholder="Running Time" id="RunningTime">
+            </br>
+            <input class="movie-inputs" type="text" placeholder="StarRating" id="StarRating">
+            </br>
+            <input class="movie-inputs" type="text" placeholder="Image URL" id="Image">
+            </br>
+            <input type="submit" id="submit_movie" class="addMovieBtn" value="Submit"></input>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-    <input type="submit" id="submit_movie" value="Submit">Submit Movie</button>
-  </form>
+
 
   <script src="static/index.js"></script>
 </body>

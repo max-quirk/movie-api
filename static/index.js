@@ -1,8 +1,19 @@
 (function () {
 
   const API_BASE_URL = 'http://localhost:5000'
-  //document.getElementById('submit_movie').addEventListener('click', getNewMovie())
-  document.getElementById('addMovie').addEventListener('submit', addMovie)
+
+  var addMovieBtn = document.getElementById('addMovie');
+  var modal = document.getElementById('simpleModal');
+  var modalBtn = document.getElementById('modalBtn');
+  var closeBtn = document.getElementsByClassName('closeBtn')[0];
+  var submitBtn = document.getElementById('submit_movie');
+
+  addMovieBtn.addEventListener('submit', addMovie);
+  modalBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  window.addEventListener('click', outsideClick);
+  submitBtn.addEventListener('click', closeModal);
+
   /**
    * Render a given movie list as HTML
    * @param {Array} movies list of movies to render
@@ -16,11 +27,11 @@
           <img class="movie-image" src="${movie.Image}">
           <div class="movie-details">
             <h1>${movie.Name}</h1>
-            <h4>Description: ${movie.Description}</h4>
-            <h4>Director: ${movie.Director}</h4>
-            <h4>Release Date: ${movie.ReleaseDate}</h4>
-            <h4>Runtime: ${movie.RunningTime}</h4>
-            <h4>Rating: ${movie.StarRating}/5</h4>
+            <h4>Description:&nbsp</h4> <p>${movie.Description}</p>
+            <h4>Director:&nbsp</h4> <p>${movie.Director}</p>
+            <h4>Release Date:&nbsp</h4> <p>${movie.ReleaseDate}</p>
+            <h4>Runtime:&nbsp</h4> <p>${movie.RunningTime}</p>
+            <h4>Rating:&nbsp</h4> <p>${movie.StarRating}/5</p>
           </div>
       </div>
       `
@@ -74,6 +85,23 @@
       .then((data) => console.log(data))
 
     getMovieList()
+  }
+
+  // Function to open modal
+  function openModal() {
+    modal.style.display = 'block';
+  }
+
+  // Function to close modal
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  // Function to close modal if outside click
+  function outsideClick(e) {
+    if (e.target == modal) {
+      modal.style.display = 'none';
+    }
   }
 
   window.addEventListener("load", getMovieList())

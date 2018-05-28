@@ -6,24 +6,24 @@ app = Flask(__name__)
 
 @app.route('/api/movies', methods=['GET'])
 def getAll():
-    """
-    TODO
+    """Returns list of movie dictionaries
+    Returns:
+        movies [list]: List of dictionaries with details of movies
     """
     return jsonify(sortMovies(movies))
 
 
 @app.route('/', methods=['GET'])
 def render():
-    """
-    TODO
-    """
+    """Returns rendered HTML file"""
     return render_template('index.html')
 
 
 @app.route('/api/movies', methods=['POST'])
 def addOne():
-    """
-    TODO
+    """Adds a movie dictionary to the movies list
+    Returns:
+        movies [list]: List of movie dictionaries
     """
     movie = {'Name': request.json['name'],
              'Description': request.json['description'],
