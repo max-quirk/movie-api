@@ -2,11 +2,11 @@
 
   const API_BASE_URL = 'http://localhost:5000'
 
-  var addMovieBtn = document.getElementById('addMovie');
-  var modal = document.getElementById('simpleModal');
-  var modalBtn = document.getElementById('modalBtn');
-  var closeBtn = document.getElementsByClassName('closeBtn')[0];
-  var submitBtn = document.getElementById('submit_movie');
+  const addMovieBtn = document.getElementById('addMovie');
+  const modal = document.getElementById('simpleModal');
+  const modalBtn = document.getElementById('modalBtn');
+  const closeBtn = document.getElementsByClassName('closeBtn')[0];
+  const submitBtn = document.getElementById('submit_movie');
 
   addMovieBtn.addEventListener('submit', addMovie);
   modalBtn.addEventListener('click', openModal);
@@ -47,12 +47,15 @@
       .then(function (response) {
         return response.json();
       })
-      .then(function (movies) {
-        renderMovieList(movies)
+      .then(function (data) {
+        renderMovieList(data.data)
       });
   }
 
-
+  /**
+   * Handle add movie form submission and perform API POST request
+   * @param {ev} e 
+   */
   function addMovie(e) {
     e.preventDefault();
     let name = document.getElementById("Name").value;
@@ -81,23 +84,32 @@
         'image': image
       })
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (movies) {
+        getMovieList(movies)
+      });
 
-    getMovieList()
   }
 
-  // Function to open modal
+  /**
+   * Function to open modal
+   */
   function openModal() {
     modal.style.display = 'block';
   }
 
-  // Function to close modal
+  /**
+   * Function to close modal
+   */
   function closeModal() {
     modal.style.display = 'none';
   }
 
-  // Function to close modal if outside click
+  /**
+   * Function to open modal if click outside modal
+   */
   function outsideClick(e) {
     if (e.target == modal) {
       modal.style.display = 'none';

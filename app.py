@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, render_template
-from movies import *
+from movies import movies
 
 app = Flask(__name__)
 
@@ -44,13 +44,12 @@ def sortMovies(movies):
     """Sort movies alphabetically based on their name
     Parametres:
         movies (list): List of movie dictionaries
-    
+
     Returns:
         movies (list): Sorted list of movie dictionaries
     """
     return sorted(movies, key=lambda k: k['Name'])
 
+
 if __name__ == '__main__':
     app.run(debug=True)
-
-
